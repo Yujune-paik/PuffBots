@@ -1,5 +1,6 @@
 {
     "python.analysis.extraPaths": [
-        "./example_simple"
+        "./example_simple",
+        "./ar_marker"
     ]
 }
