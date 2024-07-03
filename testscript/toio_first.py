@@ -2,6 +2,15 @@ import asyncio
 from toio import *
 from toio_information import toio_list
 
+# 他のディレクトリから関数をインポートするために sys.path を変更
+import sys
+import os
+
+# example_simple ディレクトリへのパスを追加
+sys.path.append(os.path.join(os.path.dirname(__file__), '../example_simple'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../ar_marker'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../'))
+
 # 番号からIDを取得する関数
 def get_toio_id_by_number(toio_number):
     for toio in toio_list:
