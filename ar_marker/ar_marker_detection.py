@@ -1,13 +1,12 @@
 import cv2
 import numpy as np
 
-
 def detect_markers(frame):
     # グレースケールに変換
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     
-    # ArUcoディクショナリを定義
-    aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_250)
+    # ArUcoディクショナリを4x4に変更
+    aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_250)
     parameters = cv2.aruco.DetectorParameters()
     
     # ArUcoDetectorを作成
