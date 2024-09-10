@@ -95,5 +95,47 @@ async def get_toio_corners():
     print("プログラムを終了します。")
     print(corner_positions)
 
+def get_toio_corners():
+    print("** ACTIVATE")
+    corner_positions = []
+    with SimpleCube() as cube:
+        print("** CONNECTED")
+
+        while True:
+            pos = cube.get_current_position()
+            orientation = cube.get_orientation()
+            button_state = cube.is_button_pressed()
+
+            # print(
+            #     "POSITION:",
+            #     pos,
+            #     x,
+            #     y,
+            #     orientation,
+            #     "GRID:",
+            #     grid,
+            #     grid_x,
+            #     grid_y,
+            #     "BATTERY",
+            #     battery_level,
+            #     "BUTTON",
+            #     button_state,
+            # )
+            if keyboard.is_pressed('enter') and len(corner_positions) < 4:
+                corner_positions.append(pos)
+                print(f"Position {len(corner_positions)} saved.")
+                break
+
+            if cube.is_button_pressed():
+                print("exit")
+                break
+
+            cube.sleep(0.5)
+
+    print(corner_positions)
+    print("** DISCONNECTED")
+    print("** END")
+
 if __name__ == "__main__":
     asyncio.run(get_ar_corners())
+    exit(get_toio_corners())

@@ -51,20 +51,23 @@ def control_toio():
 
             #　キーボードの矢印キー（上）が押されたら前進
             if keyboard.read_key() == "up":
-                cube.move(30, 1)
+                cube.move(15, 0.3)
             # キーボードの矢印キー（下）が押されたら後退
             if keyboard.read_key() == "down":
-                cube.move(-30, 1)
+                cube.move(-15, 0.3)
             # キーボードの矢印キー（右）が押されたら右回転
             if keyboard.read_key() == "right":
-                cube.spin(30, 1)
+                cube.spin(15, 0.3)
             # キーボードの矢印キー（左）が押されたら左回転
             if keyboard.read_key() == "left":
-                cube.spin(-30, 1)
+                cube.spin(-15, 0.3)
             
             # キーボードのqが入力されたら終了
             if keyboard.read_key() == "q":
                 break
+
+            # 現在のtoioの位置を表示
+            print("POSITION:", pos, "GRID:", grid)
 
 
 if __name__ == "__main__":
